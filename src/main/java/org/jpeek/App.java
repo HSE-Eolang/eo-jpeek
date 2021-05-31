@@ -213,14 +213,6 @@ public final class App {
                     )
             );
         }
-        if (this.params.containsKey("EO_CAMC")) {
-            reports.add(
-                    new XslReport(
-                            chain.transform(skeleton), eoCalc,
-                            new ReportData("EO_CAMC")
-                    )
-            );
-        }
         if (this.params.containsKey("LCOM")) {
             reports.add(
                 new XslReport(

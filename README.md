@@ -3,7 +3,7 @@
 
 jPeek is a cohesion analizator of Java projects.
 
-##What this repository is for?
+## What this repository is for?
 
 This repository proposes cohesion metrics that were written in EO and integrated in the original
 original Jpeek project.

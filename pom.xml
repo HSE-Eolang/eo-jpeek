@@ -96,7 +96,7 @@ SOFTWARE.
     </dependencies>
   </dependencyManagement>
   <properties>
-    <org.eolang.version>1.0-SNAPSHOT</org.eolang.version>
+    <org.eolang.version>1.0.1</org.eolang.version>
   </properties>
   <dependencies>
     <dependency>
@@ -244,7 +244,7 @@ SOFTWARE.
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.eolang</groupId>
+      <groupId>io.github.hse-eolang</groupId>
       <artifactId>eo-runtime</artifactId>
       <version>${org.eolang.version}</version>
     </dependency>
@@ -252,7 +252,7 @@ SOFTWARE.
   <build>
     <plugins>
       <plugin>
-        <groupId>org.eolang</groupId>
+        <groupId>io.github.hse-eolang</groupId>
         <artifactId>eo-maven-plugin</artifactId>
         <version>${org.eolang.version}</version>
         <executions>

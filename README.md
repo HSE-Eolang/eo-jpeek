@@ -5,29 +5,36 @@ jPeek is a cohesion analizator of Java projects.
 
 ## What this repository is for?
 
-This repository proposes cohesion metrics that were written in EO and integrated in the original
-original Jpeek project.
+This repository proposes cohesion metrics that were written in EO and integrated in the original Jpeek project.
 
-## How to use?
+## How to use
 
-Make a fork of the [repository](https://github.com/HSE-Eolang/jpeek).
-Download the latest `eo_hse_compiler` version from [here](https://github.com/HSE-Eolang/eo_hse).
-Inside `Jpeek` do the command that will generate `jpeek-jar-with-dependencies.jar` file :
+#### Java
+First, you need to install Java Development Kit (JDK) on your machine in order to build and work with JPeek. Version 11 of JDK would be a good option (you can find installation packages [here](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)). 
 
+#### Downloading sources
+Second, fork this repository with git:
 ```bash
-mvn clean package
+git clone git@github.com:HSE-Eolang/jpeek.git
 ```
-After that it is possible to use Jpeek:
+or just download the project code from [here](https://github.com/HSE-Eolang/jpeek/archive/refs/heads/master.zip) and unzip the archive.
+
+#### Building the project
+Then, command Maven to build the JPeek project (by the way, you do not need to install Maven, it is already packaged within the repository):
 ```bash
-$ java -jar jpeek-jar-with-dependencies.jar --sources . --target ./jpeek_output --metrics EO_LCOM1,LCOM
+./mvnw clean package
+```
+On Windows, use `mvnw.cmd` instead of `mvnw`.
+
+#### Running JPeek
+When the build is finished, you can use JPeek by playing with the sources of itself:
+```bash
+java -jar target/jpeek-jar-with-dependencies.jar --sources target/. --target ./jpeek_output --metrics EO_LCOM1,EO_LCOM2
 ```
 
-jPeek will analyze Java classes(.class) in the `--source` directory.
+jPeek will analyze Java classes (`*.class` files) in the `--sources` directory (here, it is `target/.`) and write the resulting report to the `--target` directory. In this example, the report will be generated in the `./jpeek_output` directory.
 
-Metrics that are used for calculating: `--metrics EO_LCOM1,LCOM`,the full list of EO_metrics,can be found  [here](https://github.com/HSE-Eolang/jpeek/tree/master/src/eo).
-
-XML reports will be generated in the `./jpeek_output` directory.
-
+Metrics to be calculated are listed after the `--metrics` argument key (here, these are `EO_LCOM1` and `EO_LCOM2`). The full list of metrics implemented in EO can be found [here](#cohesion-metrics).
 
 ## Cohesion Metrics
 The following Jpeek metrics are implemented using EO:

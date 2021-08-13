@@ -61,7 +61,6 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: jpeek-distribution
-        path: target
     
     - name: Run the "${{ matrix.metric }}" metric
       run: java -jar target/jpeek-jar-with-dependencies.jar --sources target/. --target ./jpeek_output --metrics ${{ matrix.metric }}

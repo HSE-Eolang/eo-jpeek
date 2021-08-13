@@ -31,11 +31,10 @@ jobs:
       run: ./mvnw clean package -DskipTests
     
     - name: Archive the JPeek package
-        uses: actions/upload-artifact@v2
-        with:
-          name: jpeek-distribution
-          path: |
-            target
+      uses: actions/upload-artifact@v2
+      with:
+        name: jpeek-distribution
+        path: target
   
   run-metrics:
     name: ${{ matrix.metric }}

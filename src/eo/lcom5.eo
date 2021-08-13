@@ -2,8 +2,23 @@
 +alias org.jpeek.calculus.eo.connectionGraph
 
 [class] > lcom5
+  connectionGraph class > graph1
   graph1.countEdges > a
   class.methods.length > k
   class.atts.length > l
-  ((a.sub (k.mul l)).div (l.sub (k.mul l))) > @
-  connectionGraph class > graph1
+  toFloat. > nominator
+    sub.
+      a
+      mul.
+        k
+        l
+  toFloat. > denominator
+    sub.
+      l
+      mul.
+        k
+        l
+  if. > @
+    denominator.neq 0
+    nominator.div denominator
+    -1.0

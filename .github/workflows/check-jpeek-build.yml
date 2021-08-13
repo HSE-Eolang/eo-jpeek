@@ -36,7 +36,7 @@ jobs:
         name: jpeek-distribution
         path: |
           target/classes
-          target/jpeek-with-dependencies.jar
+          target/jpeek-jar-with-dependencies.jar
   
   run-metrics:
     name: ${{ matrix.metric }}

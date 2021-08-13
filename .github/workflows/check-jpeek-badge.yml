@@ -11,7 +11,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -30,6 +29,38 @@ jobs:
                     ${{ runner.os }}-maven-
     - name: Build with Maven
       run: ./mvnw clean package -DskipTests
-    - name: Check EO metrics
-      run: java -jar target/jpeek-jar-with-dependencies.jar --sources target/. --target ./jpeek_output --metrics EO_LCOM1,EO_LCOM2,EO_LCOM3,EO_LCOM4,EO_LCOM5,EO_OCC,EO_PCC,EO_LCC,EO_TCC,EO_CCM,EO_CAMC,EO_NHD,EO_SCOM
+    
+    - name: Archive the JPeek package
+        uses: actions/upload-artifact@v2
+        with:
+          name: jpeek-distribution
+          path: |
+            target
+  
+  run-metrics:
+    name: ${{ matrix.metric }}
+    runs-on: ubuntu-latest
+    needs: build
 
+    strategy:
+      fail-fast: false
+      matrix:
+        metric: [EO_LCOM1,EO_LCOM2,EO_LCOM3,EO_LCOM4,EO_LCOM5,EO_OCC,EO_PCC,EO_LCC,EO_TCC,EO_CCM,EO_CAMC,EO_NHD,EO_SCOM]
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+    
+    - name: Download the JPeek package
+      uses: actions/download-artifact@v2
+      with:
+        name: jpeek-distribution
+        path: target
+    
+    - name: Run the "${{ matrix.metric }}" metric
+      run: java -jar target/jpeek-jar-with-dependencies.jar --sources target/. --target ./jpeek_output --metrics ${{ matrix.metric }}

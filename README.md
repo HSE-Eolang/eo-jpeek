@@ -1,7 +1,9 @@
 <img src="https://www.jpeek.org/logo.svg" height="92px"/>
 
 
-jPeek is a cohesion analizator of Java projects.
+jPeek is a cohesion analizator of Java projects.  
+
+[![Build Status](https://github.com/HSE-Eolang/jpeek/actions/workflows/check-jpeek-build.yml/badge.svg)](https://github.com/HSE-Eolang/jpeek/actions/workflows/check-jpeek-build.yml)
 
 ## What this repository is for?
 

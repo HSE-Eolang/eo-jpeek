@@ -35,12 +35,8 @@ import org.cactoos.scalar.And;
 import org.cactoos.scalar.AndInThreads;
 import org.cactoos.scalar.IoChecked;
 import org.cactoos.scalar.LengthOf;
-import org.eolang.EOarray;
-import org.eolang.core.EOObject;
-import org.eolang.core.data.EODataObject;
 import org.jpeek.calculus.Calculus;
 import org.jpeek.calculus.eo.*;
-import org.jpeek.calculus.xsl.XslCalculus;
 import org.jpeek.skeleton.Skeleton;
 import org.xembly.Directives;
 import org.xembly.Xembler;
@@ -100,20 +96,18 @@ public final class App {
         this(
             source, target,
             new MapOf<>(
-                new MapEntry<>("LCOM", true),
-                new MapEntry<>("LCOM2", true),
-                new MapEntry<>("LCOM3", true),
-                new MapEntry<>("LCOM4", true),
-                new MapEntry<>("LCOM5", true),
-                new MapEntry<>("SCOM", true),
-                new MapEntry<>("NHD", true),
-                new MapEntry<>("MMAC", true),
-                new MapEntry<>("OCC", true),
-                new MapEntry<>("PCC", true),
-                new MapEntry<>("TCC", true),
-                new MapEntry<>("LCC", true),
-                new MapEntry<>("CCM", true),
-                new MapEntry<>("MWE", true)
+                new MapEntry<>("EO_LCOM1", true),
+                new MapEntry<>("EO_LCOM2", true),
+                new MapEntry<>("EO_LCOM3", true),
+                new MapEntry<>("EO_LCOM4", true),
+                new MapEntry<>("EO_LCOM5", true),
+                new MapEntry<>("EO_SCOM", true),
+                new MapEntry<>("EO_NHD", true),
+                new MapEntry<>("EO_OCC", true),
+                new MapEntry<>("EO_PCC", true),
+                new MapEntry<>("EO_TCC", true),
+                new MapEntry<>("EO_LCC", true),
+                new MapEntry<>("EO_CCM", true)
             )
         );
     }
@@ -172,7 +166,6 @@ public final class App {
 
         final Calculus eoCalc = new EOCalculus();
         final Collection<Report> reports = new LinkedList<>();
-        final Calculus xsl = new XslCalculus();
         if (this.params.containsKey("EO_LCOM1")) {
             reports.add(
                     new XslReport(
@@ -275,126 +268,6 @@ public final class App {
                             chain.transform(skeleton), eoCalc,
                             new ReportData("EO_PCC")
                     )
-            );
-        }
-        if (this.params.containsKey("LCOM")) {
-            reports.add(
-                new XslReport(
-                    chain.transform(skeleton), xsl,
-                    new ReportData("LCOM", this.params, 10.0d, -5.0d)
-                )
-            );
-        }
-        if (this.params.containsKey("CAMC")) {
-            reports.add(
-                new XslReport(
-                    chain.transform(skeleton), xsl,
-                    new ReportData("CAMC", this.params)
-                )
-            );
-        }
-        if (this.params.containsKey("MMAC")) {
-            reports.add(
-                new XslReport(
-                    chain.transform(skeleton), xsl,
-                    new ReportData("MMAC", this.params, 0.5d, 0.1d)
-                )
-            );
-        }
-        if (this.params.containsKey("LCOM5")) {
-            reports.add(
-                new XslReport(
-                    chain.transform(skeleton), xsl,
-                    new ReportData("LCOM5", this.params, 0.5d, -0.1d)
-                )
-            );
-        }
-        if (this.params.containsKey("LCOM4")) {
-            reports.add(
-                new XslReport(
-                    chain.transform(skeleton), xsl,
-                    new ReportData("LCOM4", this.params, 0.5d, -0.1d)
-                )
-            );
-        }
-        if (this.params.containsKey("NHD")) {
-            reports.add(
-                new XslReport(
-                    chain.transform(skeleton), xsl,
-                    new ReportData("NHD")
-                )
-            );
-        }
-        if (this.params.containsKey("LCOM2")) {
-            reports.add(
-                new XslReport(
-                    chain.transform(skeleton), xsl,
-                    new ReportData("LCOM2", this.params)
-                )
-            );
-        }
-        if (this.params.containsKey("LCOM3")) {
-            reports.add(
-                new XslReport(
-                    chain.transform(skeleton), xsl,
-                    new ReportData("LCOM3", this.params)
-                )
-            );
-        }
-        if (this.params.containsKey("SCOM")) {
-            reports.add(
-                new XslReport(
-                    chain.transform(skeleton), xsl,
-                    new ReportData("SCOM", this.params)
-                )
-            );
-        }
-        if (this.params.containsKey("OCC")) {
-            reports.add(
-                new XslReport(
-                    chain.transform(skeleton), xsl,
-                    new ReportData("OCC", this.params)
-                )
-            );
-        }
-        if (this.params.containsKey("PCC")) {
-            reports.add(
-                new XslReport(
-                    chain.transform(skeleton), xsl,
-                    new ReportData("PCC")
-                )
-            );
-        }
-        if (this.params.containsKey("TCC")) {
-            reports.add(
-                new XslReport(
-                    chain.transform(skeleton), xsl,
-                    new ReportData("TCC")
-                )
-            );
-        }
-        if (this.params.containsKey("LCC")) {
-            reports.add(
-                new XslReport(
-                    chain.transform(skeleton), xsl,
-                    new ReportData("LCC")
-                )
-            );
-        }
-        if (this.params.containsKey("CCM")) {
-            reports.add(
-                new XslReport(
-                    chain.transform(skeleton), xsl,
-                    new ReportData("CCM")
-                )
-            );
-        }
-        if (this.params.containsKey("MWE")) {
-            reports.add(
-                new XslReport(
-                    chain.transform(skeleton), xsl,
-                    new ReportData("MWE")
-                )
             );
         }
         new IoChecked<>(

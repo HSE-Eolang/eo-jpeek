@@ -101,7 +101,7 @@ public final class Main {
      * Ctor.
      */
     private Main() {
-        this.metrics = "LCOM5,NHD,MMAC,SCOM,CAMC";
+        this.metrics = "EO_LCOM5,EO_NHD,EO_MMAC,EO_SCOM,EO_CAMC";
     }
 
     /**

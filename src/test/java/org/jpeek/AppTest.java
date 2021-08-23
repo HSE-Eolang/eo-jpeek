@@ -56,18 +56,18 @@ public final class AppTest {
         final Path input = Paths.get(".");
         new App(input, output).analyze();
         new Assertion<>(
-            "Must LCOM.xml file exists",
-            Files.exists(output.resolve("LCOM.xml")),
+            "Must EO_LCOM1.xml file exists",
+            Files.exists(output.resolve("EO_LCOM1.xml")),
             new IsTrue()
         ).affirm();
         new Assertion<>(
-            "Must create LCOM report",
+            "Must create EO_LCOM1 report",
             XSLDocument
                 .make(
                     AppTest.class.getResourceAsStream("xsl/metric.xsl")
                 )
                 .with(new ClasspathSources())
-                .applyTo(new XMLDocument(output.resolve("LCOM.xml").toFile())),
+                .applyTo(new XMLDocument(output.resolve("EO_LCOM1.xml").toFile())),
             XhtmlMatchers.hasXPath("//xhtml:body")
         ).affirm();
     }

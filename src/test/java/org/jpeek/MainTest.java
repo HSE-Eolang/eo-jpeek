@@ -49,8 +49,8 @@ public final class MainTest {
         final Path input = Paths.get(".");
         Main.main("--sources", input.toString(), "--target", output.toString());
         new Assertion<>(
-            "Must create LCOM5 report",
-            Files.exists(output.resolve("LCOM5.xml")),
+            "Must create EO_LCOM5 report",
+            Files.exists(output.resolve("EO_LCOM5.xml")),
             new IsTrue()
         ).affirm();
     }
@@ -129,8 +129,8 @@ public final class MainTest {
             "--overwrite"
         );
         new Assertion<>(
-            "Must exists LCOM5.xml",
-            Files.exists(target.resolve("LCOM5.xml")),
+            "Must exists EO_LCOM5.xml",
+            Files.exists(target.resolve("EO_LCOM5.xml")),
             new IsTrue()
         ).affirm();
     }

@@ -65,7 +65,7 @@ public final class XslReportTest {
     }
 
     //@Test
-    // TODO investigate why this test fails and make it work
+    //TODO investigate why this test fails and make it work
     public void createsXmlReportWithXpaths(@TempDir final Path output) throws IOException {
         new XslReport(
             new Skeleton(
@@ -104,7 +104,7 @@ public final class XslReportTest {
     }
 
     //@Test
-    // TODO investigate why this test fails and make it work
+    //TODO investigate why this test fails and make it work
     public void createsFullXmlReport(@TempDir final Path output) throws IOException {
         new XslReport(
             new XMLDocument(

@@ -67,7 +67,7 @@ import org.llorllale.cactoos.matchers.Assertion;
 public final class MetricsTest {
 
     //@ParameterizedTest
-    // TODO rewrite these tests to EO metrics
+    //TODO rewrite these tests to EO metrics
     @CsvFileSource(resources = "/org/jpeek/metricstest-params.csv")
     public void testsTarget(final String target, final String metric, final double value,
         @TempDir final Path output)

@@ -31,12 +31,12 @@ On Windows, use `mvnw.cmd` instead of `mvnw`.
 #### Running JPeek
 When the build is finished, you can use JPeek by playing with the sources of itself:
 ```bash
-java -jar target/jpeek-jar-with-dependencies.jar --sources target/. --target ./jpeek_output --metrics EO_LCOM1,EO_LCOM2
+java -jar target/jpeek-jar-with-dependencies.jar --sources target/. --target ./jpeek_output --metrics EO_LCOM1,EO_LCOM2,EO_LCOM3,EO_LCOM4,EO_LCOM5,EO_SCOM,EO_NHD,EO_OCC,EO_PCC,EO_TCC,EO_LCC,EO_CCM
 ```
 
 jPeek will analyze Java classes (`*.class` files) in the `--sources` directory (here, it is `target/.`) and write the resulting report to the `--target` directory. In this example, the report will be generated in the `./jpeek_output` directory.
 
-Metrics to be calculated are listed after the `--metrics` argument key (here, these are `EO_LCOM1` and `EO_LCOM2`). The full list of metrics implemented in EO can be found [here](#cohesion-metrics).
+Metrics to be calculated are listed after the `--metrics` argument key. The full list of metrics implemented in EO can be found [here](#cohesion-metrics).
 
 ## Cohesion Metrics
 The following Jpeek metrics are implemented using EO:

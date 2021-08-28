@@ -95,9 +95,6 @@ SOFTWARE.
       </dependency>
     </dependencies>
   </dependencyManagement>
-  <properties>
-    <org.eolang.version>1.0.1</org.eolang.version>
-  </properties>
   <dependencies>
     <dependency>
       <groupId>org.cactoos</groupId>
@@ -245,8 +242,8 @@ SOFTWARE.
     </dependency>
     <dependency>
       <groupId>io.github.hse-eolang</groupId>
-      <artifactId>eo-runtime</artifactId>
-      <version>${org.eolang.version}</version>
+      <artifactId>runtime</artifactId>
+      <version>[1.0.5,)</version>
     </dependency>
   </dependencies>
   <build>

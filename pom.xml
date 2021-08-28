@@ -252,20 +252,29 @@ SOFTWARE.
   <build>
     <plugins>
       <plugin>
-        <groupId>io.github.hse-eolang</groupId>
+        <groupId>org.eolang</groupId>
         <artifactId>eo-maven-plugin</artifactId>
-        <version>${org.eolang.version}</version>
+        <version>0.3.1</version>
+        <configuration>
+          <sourcesDir>${project.basedir}/src/eo</sourcesDir>
+          <targetDir>${project.basedir}/target</targetDir>
+          <compiler>io.github.hse_eolang.transpiler.Transpiler</compiler>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>io.github.hse-eolang</groupId>
+            <artifactId>transpiler</artifactId>
+            <version>[1.0.6,)</version>
+          </dependency>
+        </dependencies>
         <executions>
           <execution>
+            <phase>generate-sources</phase>
             <goals>
               <goal>parse</goal>
               <goal>optimize</goal>
               <goal>compile</goal>
             </goals>
-            <configuration>
-              <sourcesDir>${project.basedir}/src/eo</sourcesDir>
-              <targetDir>${project.basedir}/target</targetDir>
-            </configuration>
           </execution>
         </executions>
       </plugin>
